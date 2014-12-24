@@ -1,3 +1,6 @@
 [submodule "server/components/counter"]
 	path = server/components/counter
 	url = git://github.com/Dica-Developer/counter.git
+[submodule "server/components/qr"]
+	path = server/components/qr
+	url = git://github.com/Dica-Developer/kicker-cam-qr.git
