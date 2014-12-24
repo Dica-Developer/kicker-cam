@@ -1,7 +1,7 @@
 kicker-cam
 ==========
 
-###Quick start
+##Quick start
 
 We're using submodules so you have to checkout with 
 ```sh
