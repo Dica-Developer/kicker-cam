@@ -12,8 +12,13 @@ to init all submodules.
 ###Prerequisite
 
 [Node](http://nodejs.org/)
+
 [Bower](http://bower.io/)
+
 [Grunt-CLI](http://gruntjs.com/getting-started)
+
 [Yeoman](http://yeoman.io/)
+
 [Angular Full Stack](https://github.com/DaftMonk/generator-angular-fullstack)
+
 [Cairo](http://cairographics.org/download/)
