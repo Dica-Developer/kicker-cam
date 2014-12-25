@@ -2,6 +2,7 @@
 
 var _ = require('lodash');
 var FoosballGame = require('./foosball-game.model');
+var User = require('../user/user.model');
 
 // Get list of foosball-games
 exports.index = function(req, res) {
@@ -50,6 +51,20 @@ exports.destroy = function(req, res) {
     foosballGame.remove(function(err) {
       if(err) { return handleError(res, err); }
       return res.send(204);
+    });
+  });
+};
+
+exports.signIn = function(req, res) {
+  User.findById(req.params.userId, function(err, user){
+    if(err) { return handleError(res, err); }
+
+    FoosballGame.findById(req.params.id, function (err, foosballGame) {
+      if(err) { return handleError(res, err); }
+      foosballGame.addPlayer(user, function(err, game){
+        if(err) { return handleError(res, err); }
+        return res.send(200, game);
+      });
     });
   });
 };
