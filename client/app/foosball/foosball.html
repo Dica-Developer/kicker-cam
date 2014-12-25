@@ -1,0 +1,11 @@
+<div ng-include="'components/navbar/navbar.html'"></div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <div ng-repeat="game in foosballGames | orderBy:'active':true">
+        <foosball-game data-game="game" ng-if="(!game.finished || isLoggedIn())"></foosball-game>
+      </div>
+    </div>
+  </div>
+</div>
