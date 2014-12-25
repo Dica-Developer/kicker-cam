@@ -69,7 +69,7 @@ function injectUser() {
       {
         provider: 'local',
         name: 'TwerkJörg',
-        email: 'jörg@test.com',
+        email: 'joerg@test.com',
         password: '12345'
       },
       {
