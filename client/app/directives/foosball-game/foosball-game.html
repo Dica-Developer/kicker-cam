@@ -1,0 +1,32 @@
+<div class="panel panel-default game">
+  <!-- Default panel contents -->
+  <div class="panel-heading">
+    <span ng-repeat="player in game.player" >
+      <a href="">{{player.name}}</a>
+    </span>
+    <span class="pull-right">
+      <i class="fa fa-lg fa-sign-in sign-in" ng-click="signIn(game._id)" tooltip="Count me in" ng-if="((game.player.length < 4) && isLoggedIn())"></i>
+      <i class="fa fa-lg fa-futbol-o" ng-class="{'text-success': (!game.active && game.finished), 'text-warning': (game.active && !game.finished), 'text-danger': (!game.active && !game.finished), 'fa-spin': game.active}"></i>
+    </span>
+  </div>
+
+  <!-- Table -->
+  <table class="table">
+    <thead>
+      <th>Round</th>
+      <th>Red <small>(Offense - Defense)</small></th>
+      <th>Score</th>
+      <th>Blue <small>(Offense - Defense)</small></th>
+      <th>Score</th>
+    </thead>
+    <tbody>
+      <tr ng-repeat="round in game.rounds">
+        <td>{{round.nr}}</td>
+        <td>{{round.red_offense.name}} - {{round.red_defense.name}}</td>
+        <td>{{round.red_score}}</td>
+        <td>{{round.blue_offense.name}} - {{round.blue_defense.name}}</td>
+        <td>{{round.blue_score}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
