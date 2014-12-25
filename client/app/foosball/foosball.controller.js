@@ -15,6 +15,6 @@ angular.module('kickerCamApp')
     });
 
     $scope.$on('$destroy', function () {
-      socket.unsyncUpdates('foosballGames');
+      socket.unsyncUpdates('foosball-game');
     });
   });
