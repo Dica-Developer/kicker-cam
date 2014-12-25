@@ -94,9 +94,13 @@ function injectGames() {
           finished: true
         },
         game2 = {
-          player: [user[0]._id, user[1]._id, user[2]._id, user[3]._id]
+          player: [user[0]._id, user[1]._id, user[2]._id, user[3]._id],
+          active: true
+        },
+        game3 = {
+          player: [user[0]._id]
         };
-      FoosballGame.create([game1, game2], function () {
+      FoosballGame.create([game1, game2, game3], function () {
         console.log('finished populating games');
         FoosballGame.find().exec(function (error, games) {
           var game1_round1 = {
