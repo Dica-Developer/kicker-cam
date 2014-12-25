@@ -4,6 +4,7 @@ describe('Controller: FoosballCtrl', function () {
 
   // load the controller's module
   beforeEach(module('kickerCamApp'));
+  beforeEach(module('socketMock'));
 
   var FoosballCtrl, scope;
 
