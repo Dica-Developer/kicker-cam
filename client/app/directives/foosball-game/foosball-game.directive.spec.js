@@ -12,10 +12,11 @@ describe('Directive: foosballGame', function () {
     scope = $rootScope.$new();
   }));
 
-  it('should make hidden element visible', inject(function ($compile) {
+  xit('should make hidden element visible', inject(function ($compile) {
     element = angular.element('<foosball-game></foosball-game>');
     element = $compile(element)(scope);
     scope.$apply();
+    console.log(element);
     expect(element.text()).toBe('this is the foosballGame directive');
   }));
 });
