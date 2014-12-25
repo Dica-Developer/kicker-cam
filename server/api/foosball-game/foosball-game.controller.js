@@ -6,9 +6,23 @@ var User = require('../user/user.model');
 
 // Get list of foosball-games
 exports.index = function(req, res) {
-  FoosballGame.find(function (err, foosballGames) {
-    if(err) { return handleError(res, err); }
-    return res.json(200, foosballGames);
+  console.time('Get Games');
+  var roundPopulateOptions = [
+    {path: 'rounds.red_offense', select: 'name', model: 'User'},
+    {path: 'rounds.red_defense', select: 'name', model: 'User'},
+    {path: 'rounds.blue_offense', select: 'name', model: 'User'},
+    {path: 'rounds.blue_defense', select: 'name', model: 'User'}
+  ];
+  FoosballGame.find()
+    .populate('player', 'name')
+    .populate('rounds', '-_id')
+    .populate(roundPopulateOptions)
+    .exec(function (err, foosballGames) {
+      FoosballGame.populate(foosballGames, roundPopulateOptions, function(err, foosballGames){
+        if(err) { return handleError(res, err); }
+        console.timeEnd('Get Games');
+        return res.json(200, foosballGames);
+      });
   });
 };
 
